@@ -1,12 +1,13 @@
 package me.volcifire.helloworld.commands;
 
-import me.volcifire.helloworld.Main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import me.volcifire.helloworld.Main;
 
 public class HelloCommand implements CommandExecutor {
+  
   private Main plugin;
   
   public HelloCommand(Main plugin) {
@@ -14,7 +15,7 @@ public class HelloCommand implements CommandExecutor {
     
     plugin.getCommand("hello").setExecutor(this);
   }
-  
+
   @Override
   public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
     if (!(sender instanceof Player)) {
@@ -31,10 +32,10 @@ public class HelloCommand implements CommandExecutor {
     Player player = (Player) sender;
     
     if (player.hasPermission("hello.use")) {
-      player.sendMessage("hi!");
+      player.sendMessage("Hello Admin!");
       return true;
     } else {
-      player.sendMessage("You do not have permission to run this command!");
+      player.sendMessage("Hi");
     }
     
     return false;
